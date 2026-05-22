@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Giriş Paneli";
+}
+
+<div class="cyber-content-container d-flex align-items-center justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8">
+                
+                <div class="p-5 rounded-3 cyber-card position-relative">
+                    
+                    <div class="badge bg-primary mb-3 px-3 py-2 text-uppercase shadow-sm" style="letter-spacing: 2px; font-size: 0.8rem;">
+                        KAMPÜS VERİ TABANI SİSTEMİ
+                    </div>
+                    
+                    <h1 class="display-4 fw-bold mb-3 neon-text-blue" style="letter-spacing: 1px;">KİTAP YÖNETİM SİSTEMİ</h1>
+                    
+                    <p class="lead mb-5" style="color: #a5a6a7; font-size: 1.1rem; line-height: 1.7;">
+                        Bu otomasyon paneli; gelişmiş rol tabanlı yetkilendirme (RBAC) altyapısı kullanılarak kitap, yazar ve kategori verilerini güvenli bir şekilde yönetmek amacıyla geliştirilmiştir.
+                    </p>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="@Url.Action("Index", "Books")" class="btn cyber-btn btn-lg px-5 shadow">Kitaplığı Gör</a>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Bütün sayfayı kaplayan pürüzsüz siber koyu arka plan */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        /* Resmi sildik, yerine derin siber uzay renk geçişini ekledik */
+        background: linear-gradient(135deg, #0b0c10 0%, #110d26 100%) !important;
+        background-attachment: fixed !important;
+    }
+
+    /* İçeriği dikeyde ortalama alanı */
+    .cyber-content-container {
+        min-height: calc(100vh - 120px);
+        width: 100%;
+    }
+
+    /* Ortadaki parlayan siber kutunun net ve keskin duruşu */
+    .cyber-card {
+        background: #0f0c20 !important; /* Opak ve net bir koyu mor/siyah */
+        border: 2px solid #00f0ff !important; /* Parlayan Elektrik Mavisi Çerçeve */
+        box-shadow: 0 0 35px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
+    }
+
+</style>

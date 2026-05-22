@@ -1,0 +1,92 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Giriş Paneli";
+}
+
+<div class="cyber-account-wrapper d-flex align-items-center justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                
+                <div class="p-5 rounded-3 cyber-card shadow">
+                    <h2 class="text-center neon-text-blue fw-bold mb-4" style="letter-spacing: 2px;">GİRİŞ TERMİNALİ</h2>
+                    
+                    <form id="account" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
+                        
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Email" class="form-control cyber-input" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                            <label asp-for="Input.Email" class="cyber-label">E-Posta Adresi</label>
+                            <span asp-validation-for="Input.Email" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Password" class="form-control cyber-input" autocomplete="current-password" aria-required="true" placeholder="password" />
+                            <label asp-for="Input.Password" class="cyber-label">Şifre</label>
+                            <span asp-validation-for="Input.Password" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="checkbox mb-4 form-check">
+                            <label asp-for="Input.RememberMe" class="form-check-label text-muted">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                Beni Hatırla
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <button id="login-submit" type="submit" class="btn cyber-btn-submit w-100 py-2 fw-bold text-uppercase">Giriş Yap</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cyber-account-wrapper {
+        min-height: 75vh;
+        width: 100%;
+        background: linear-gradient(135deg, #0b0c10 0%, #110d26 100%) !important;
+        display: flex;
+        align-items: center;
+    }
+    .cyber-card {
+        background: #0f0c20 !important;
+        border: 2px solid #00f0ff !important; /* Elektrik Mavisi Çerçeve */
+        box-shadow: 0 0 30px rgba(0, 240, 255, 0.3) !important;
+    }
+    .cyber-label {
+        color: #ff007f !important; /* Pembe Yazı */
+    }
+    .cyber-input {
+        background-color: #0b0c10 !important;
+        border: 1px solid #ff007f !important;
+        color: #ff007f !important;
+    }
+    .cyber-input:focus {
+        background-color: #0b0c10 !important;
+        color: #00f0ff !important;
+        border-color: #00f0ff !important;
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.5) !important;
+    }
+    .cyber-btn-submit {
+        background: transparent !important;
+        color: #00f0ff !important;
+        border: 2px solid #00f0ff !important;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+    }
+    .cyber-btn-submit:hover {
+        background: #00f0ff !important;
+        color: #05050a !important;
+        box-shadow: 0 0 20px #00f0ff;
+    }
+</style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<kitap_y.Models.Book>
+
+@{
+    ViewData["Title"] = "Kütüphane";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary">
+        <h2 class="neon-text-blue fw-bold m-0" style="letter-spacing: 2px;">KÜTÜPHANE</h2>
+        
+        @if (User.IsInRole("Admin") || User.IsInRole("BookAddUser"))
+        {
+            <a asp-action="Create" class="btn cyber-btn px-4 shadow-sm"> Yeni Kitap Ekle </a>
+        }
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover align-middle border-secondary shadow" style="background-color: #110d26 !important;">
+            <thead style="background-color: #ff007f !important; color: white; font-weight: bold; letter-spacing: 1px;">
+                <tr>
+                    <th>KİTAP ADI</th>
+                    <th>FİYAT</th>
+                    <th>STOK DURUMU</th>
+                    <th>YAZAR</th>
+                    <th>KATEGORİ</th>
+                    <th class="text-end">İŞLEMLER</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="fw-bold text-white">@item.Name</td>
+                        <td class="neon-text-blue">@item.Price ₺</td>
+                        <td>
+                            <span class="badge bg-secondary">@item.Stock Adet</span>
+                        </td>
+                        <td>@item.Author?.Name</td>
+                        <td>@item.Category?.Name</td>
+                        <td class="text-end">
+                            <div class="btn-group" role="group">
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("BookAddUser")))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary fw-bold me-1">DÜZENLE</a>
+                                }
+    
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info text-white fw-bold me-1">DETAY</a>
+    
+                                @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("BookAddUser")))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger fw-bold">SİL</a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
