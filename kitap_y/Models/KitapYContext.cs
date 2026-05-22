@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace kitap_y.Models
 {
-    // Başına tam yolunu (Microsoft...) yazarak karmaşayı kökten çözüyoruz
+    
     public class KitapYContext : Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext
     {
         public KitapYContext(DbContextOptions<KitapYContext> options) : base(options)

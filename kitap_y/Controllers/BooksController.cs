@@ -58,7 +58,7 @@ namespace kitap_y.Controllers
         }
 
         // POST: Books/Create
-        [Authorize(Roles = "Admin,BookAddUser")] // Sadece Admin and BookAddUser kaydedebilir
+        [Authorize(Roles = "Admin,BookAddUser")] // Sadece Admin ve BookAddUser kaydedebilir
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Price,Stock,AuthorId,CategoryId")] Book book)

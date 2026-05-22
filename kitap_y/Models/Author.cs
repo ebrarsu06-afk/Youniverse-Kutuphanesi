@@ -2,7 +2,7 @@
 {
     public class Author
     {
-        public int Id { get; set; } // Buranın tam olarak "Id" olduğundan emin ol
+        public int Id { get; set; } 
         public string Name { get; set; }
     }
 }
